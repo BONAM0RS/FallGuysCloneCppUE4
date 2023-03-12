@@ -24,6 +24,6 @@ private:
 	UPROPERTY(VisibleDefaultsOnly)
 	UStaticMeshComponent* SpinningMeshComponent;
 	
-	UPROPERTY(EditDefaultsOnly, Category = "Custom Setings")
+	UPROPERTY(EditDefaultsOnly, Category = "Custom Settings")
 	FRotator RotationRate;
 };

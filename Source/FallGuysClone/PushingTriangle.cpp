@@ -14,6 +14,9 @@ APushingTriangle::APushingTriangle()
 
 	BoxComponent3 = CreateDefaultSubobject<UBoxComponent>(TEXT("OverlapBox3"));
 	BoxComponent3->SetupAttachment(StaticMeshComponent);
+
+	BoxComponent4 = CreateDefaultSubobject<UBoxComponent>(TEXT("OverlapBox4"));
+	BoxComponent4->SetupAttachment(StaticMeshComponent);
 }
 
 
@@ -24,6 +27,7 @@ void APushingTriangle::BeginPlay()
 	BoxComponent1->OnComponentBeginOverlap.AddDynamic(this, &APushingActor::OnActorBeginOverlap);
 	BoxComponent2->OnComponentBeginOverlap.AddDynamic(this, &APushingActor::OnActorBeginOverlap);
 	BoxComponent3->OnComponentBeginOverlap.AddDynamic(this, &APushingActor::OnActorBeginOverlap);
+	BoxComponent4->OnComponentBeginOverlap.AddDynamic(this, &APushingActor::OnActorBeginOverlap);
 }
 
 
@@ -33,8 +37,4 @@ void APushingTriangle::Tick(float DeltaTime)
 }
 
 
-void APushingTriangle::OnActorBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
-	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
-	Super::OnActorBeginOverlap(OverlappedComp, OtherActor, OtherComp, OtherBodyIndex, bFromSweep, SweepResult);
-}
+

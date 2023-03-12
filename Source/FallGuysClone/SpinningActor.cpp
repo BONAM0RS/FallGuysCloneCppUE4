@@ -9,7 +9,7 @@ ASpinningActor::ASpinningActor()
 	SpinningMeshComponent->SetupAttachment(StaticMeshComponent);
 	SpinningMeshComponent->SetMobility(EComponentMobility::Movable);
 
-	// Enable it for actors which must push character
+	// Enable it only for actors which must push character during rotation
 	bReplicates = false;
 	SpinningMeshComponent->SetIsReplicated(false);
 }
