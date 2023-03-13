@@ -13,6 +13,7 @@ AGameObjectActor::AGameObjectActor()
 	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
 	StaticMeshComponent->SetupAttachment(SceneComponent);
 	StaticMeshComponent->SetMobility(EComponentMobility::Static);
+	StaticMeshComponent->SetCollisionProfileName("BlockAll");
 }
 
 
@@ -25,5 +26,10 @@ void AGameObjectActor::BeginPlay()
 void AGameObjectActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+}
+
+UStaticMeshComponent* AGameObjectActor::GetMesh() const
+{
+	return StaticMeshComponent;
 }
 

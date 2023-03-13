@@ -20,6 +20,8 @@ protected:
 public:	
 	virtual void Tick(float DeltaTime) override;
 
+	UStaticMeshComponent* GetMesh() const;
+
 protected:
 	UPROPERTY(VisibleDefaultsOnly)
 	USceneComponent* SceneComponent;

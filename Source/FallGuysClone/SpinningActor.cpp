@@ -8,6 +8,7 @@ ASpinningActor::ASpinningActor()
 	SpinningMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("SpinningMesh"));
 	SpinningMeshComponent->SetupAttachment(StaticMeshComponent);
 	SpinningMeshComponent->SetMobility(EComponentMobility::Movable);
+	SpinningMeshComponent->SetCollisionProfileName("BlockAllDynamic");
 
 	// Enable it only for actors which must push character during rotation
 	bReplicates = false;

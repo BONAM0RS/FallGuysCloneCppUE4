@@ -5,8 +5,13 @@
 
 APhysicsBall::APhysicsBall()
 {
+	// Disabled simulating physics to spawn this actor with scaling animation from actor spawner, enable after spawn
+	StaticMeshComponent->SetSimulatePhysics(false);
+	StaticMeshComponent->SetCollisionProfileName("BlockAllDynamic");
+	
 	SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("OverlapSphere"));
 	SphereComponent->SetupAttachment(StaticMeshComponent);
+	SphereComponent->SetMobility(EComponentMobility::Movable);
 }
 
 void APhysicsBall::BeginPlay()
