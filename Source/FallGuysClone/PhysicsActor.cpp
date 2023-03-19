@@ -41,7 +41,9 @@ void APhysicsActor::OnActorBeginOverlap(UPrimitiveComponent* OverlappedComp, AAc
 	AFallGuysCharacter* Character = Cast<AFallGuysCharacter>(OtherActor);
 	if (Character)
 	{
-		Character->ActivateRagdoll();
+		if (Character->GetRagdollState() == false) {
+			Character->ActivateRagdoll();
+		}
 	}
 }
 

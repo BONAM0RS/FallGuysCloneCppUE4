@@ -11,7 +11,10 @@
 
 AFallGuysCharacter::AFallGuysCharacter()
 	: DefaultMeshRelativeLocation { 0.0f, 0.0f, -97.0f },
-	  DefaultMeshRelativeRotation { 0.0f, 270.0f, 0.0f }
+	  DefaultMeshRelativeRotation { 0.0f, 270.0f, 0.0f },
+	  IsRagdollActivated { false },
+	  CheckpointLocation { 0.0f, 0.0f, 0.0f },
+	  CheckpointRotation { 0.0f, 0.0f, 0.0f }
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
@@ -146,21 +149,51 @@ void AFallGuysCharacter::Tick(float DeltaTime)
 
 	// Fix character collision with rotating objects
 	FHitResult OutHit;
-	GetCharacterMovement()->SafeMoveUpdatedComponent(FVector(0.f, 0.f, 0.01f), GetActorRotation(), true, OutHit);
-	GetCharacterMovement()->SafeMoveUpdatedComponent(FVector(0.f, 0.f, -0.01f), GetActorRotation(), true, OutHit);
+	UCharacterMovementComponent* CharacterMovementComponent = GetCharacterMovement();
+	CharacterMovementComponent->SafeMoveUpdatedComponent(FVector(0.f, 0.f, 0.01f), GetActorRotation(), true, OutHit);
+	CharacterMovementComponent->SafeMoveUpdatedComponent(FVector(0.f, 0.f, -0.01f), GetActorRotation(), true, OutHit);
+}
+
+void AFallGuysCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+
+	UpdateCheckpointPosition();
+}
+
+
+void AFallGuysCharacter::UpdateCheckpointPosition()
+{
+	CheckpointLocation = GetActorLocation();
+	//CheckpointRotation = GetActorRotation();
+}
+
+void AFallGuysCharacter::TeleportOnCheckpointPosition()
+{
+	SetActorLocation(CheckpointLocation);
+	SetActorRotation(CheckpointRotation);
 }
 
 
 void AFallGuysCharacter::ActivateRagdoll()
 {
+	IsRagdollActivated = true;
+	
 	GetCharacterMovement()->SetMovementMode(EMovementMode::MOVE_None);
-	GetMesh()->SetCollisionProfileName("PhysicsActor");
-	GetMesh()->SetCollisionObjectType(ECollisionChannel::ECC_PhysicsBody);
-	GetMesh()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-	GetMesh()->SetAllBodiesSimulatePhysics(true);
+	
+	USkeletalMeshComponent* PlayerMesh = GetMesh();
+	PlayerMesh->SetCollisionProfileName("PhysicsActor");
+	PlayerMesh->SetCollisionObjectType(ECollisionChannel::ECC_PhysicsBody);
+	PlayerMesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	PlayerMesh->SetAllBodiesSimulatePhysics(true);
 
 	StartCapsuleTimer();
 	StartRespawnTimer();
+}
+
+bool AFallGuysCharacter::GetRagdollState() const
+{
+	return IsRagdollActivated;
 }
 
 
@@ -184,21 +217,33 @@ void AFallGuysCharacter::DeactivateCapsule()
 void AFallGuysCharacter::DeactivateRagdoll()
 {
 	GetCharacterMovement()->SetMovementMode(EMovementMode::MOVE_Walking);
-	GetMesh()->SetCollisionProfileName("CharacterMesh");
-	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-	GetMesh()->SetCollisionObjectType(ECollisionChannel::ECC_Pawn);
-	GetMesh()->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
-	GetMesh()->SetAllBodiesSimulatePhysics(false);
+	
+	USkeletalMeshComponent* PlayerMesh = GetMesh();
+	PlayerMesh->SetCollisionProfileName("CharacterMesh");
 
-	const FVector CurrentMeshLocation = GetMesh()->GetComponentLocation();
-	GetCapsuleComponent()->SetWorldLocation(CurrentMeshLocation);
+	UCapsuleComponent* PlayerCapsuleComponent = GetCapsuleComponent();
+	PlayerCapsuleComponent->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	
+	PlayerMesh->SetCollisionObjectType(ECollisionChannel::ECC_Pawn);
+	PlayerMesh->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+	PlayerMesh->SetAllBodiesSimulatePhysics(false);
+
+	const FVector CurrentMeshLocation = PlayerMesh->GetComponentLocation();
+	PlayerCapsuleComponent->SetWorldLocation(CurrentMeshLocation);
 	
 	FAttachmentTransformRules AttachmentTransformRules = FAttachmentTransformRules(EAttachmentRule::KeepRelative, true);
 	AttachmentTransformRules.LocationRule = EAttachmentRule::SnapToTarget;
-	GetMesh()->AttachToComponent(GetCapsuleComponent(), AttachmentTransformRules);
-	GetMesh()->SetRelativeLocationAndRotation(DefaultMeshRelativeLocation, DefaultMeshRelativeRotation);
+	PlayerMesh->AttachToComponent(PlayerCapsuleComponent, AttachmentTransformRules);
+	PlayerMesh->SetRelativeLocationAndRotation(DefaultMeshRelativeLocation, DefaultMeshRelativeRotation);
 	
 	GetWorld()->GetTimerManager().ClearTimer(RespawnTimerHandle);
+
+	IsRagdollActivated = false;
 }
+
+
+
+
+
 
 

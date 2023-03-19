@@ -74,9 +74,15 @@ public:
 	// MY IMPLEMENTATIONS =============================================
 protected:
 	virtual void Tick(float DeltaTime) override;
+	
+	virtual void BeginPlay() override;
 
 public:
+	void UpdateCheckpointPosition();
+	void TeleportOnCheckpointPosition();
+	
 	void ActivateRagdoll();
+	bool GetRagdollState() const;
 	
 private:
 	FTimerHandle RespawnTimerHandle;
@@ -90,6 +96,11 @@ private:
 	
 	FVector DefaultMeshRelativeLocation;
 	FRotator DefaultMeshRelativeRotation;
+
+	bool IsRagdollActivated;
+
+	FVector CheckpointLocation;
+	FRotator CheckpointRotation;
 	// =================================================================
 };
 
