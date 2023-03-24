@@ -1,5 +1,7 @@
-# Cache files for the editor to use
+# ArtSourceFiles FBX
 ArtSourceFiles/*
+.ArtSourceFiles
+*.fbx
 
 # intellij configs
 .idea/
