@@ -24,7 +24,7 @@ private:
 	void SpawnActor();
 
 	void PushActor(AActor* Actor);
-
+	
 	void StartScaleTimer(AActor* Actor);
 	void ClearScaleTimer(AActor* Actor);
 	
@@ -58,6 +58,15 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Spawn Settings")
 	bool IsMassEffected;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Spawn Settings")
+	bool IsRandomImpulseDirY;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Spawn Settings")
+	float MinRandomImpulseDirY;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Spawn Settings")
+	float MaxRandomImpulseDirY;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Spawn Settings")
 	FVector ImpulseDirection;

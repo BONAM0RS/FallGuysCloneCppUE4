@@ -5,16 +5,19 @@
 
 
 AActorSpawner::AActorSpawner()
-	: FirstSpawnTime    { -1 },
-	  RespawnTime       { 5 },
-	  IsRespawnLoop     { false },
-	  IsScaleAfterSpawn { false },
-	  ScaleTimeRate     { 0.1f },
-	  ScaleAddRate      { 0.1f },
-	  IsPushAfterSpawn  { false },
-	  IsMassEffected    { false },
-      ImpulseDirection  {-1.0f, 0.0f ,0.0f },
-	  ImpulsePower      { 1000 }
+	: FirstSpawnTime       { -1 },
+	  RespawnTime          { 5 },
+	  IsRespawnLoop        { false },
+	  IsScaleAfterSpawn    { false },
+	  ScaleTimeRate        { 0.1f },
+	  ScaleAddRate         { 0.1f },
+	  IsPushAfterSpawn     { false },
+	  IsMassEffected       { false },
+      IsRandomImpulseDirY  { false },
+	  MinRandomImpulseDirY { 0.0f },
+	  MaxRandomImpulseDirY { 0.0f },
+      ImpulseDirection     {-1.0f, 0.0f ,0.0f },
+	  ImpulsePower         { 1000 }
 {
 	StaticMeshComponent->SetCollisionProfileName("NoCollision");
 	StaticMeshComponent->bHiddenInGame = true;
@@ -74,7 +77,10 @@ void AActorSpawner::PushActor(AActor* Actor)
 	APhysicsActor* PhysicsActor = Cast<APhysicsActor>(Actor);
 	if (PhysicsActor)
 	{
-		PhysicsActor->GetMesh()->AddImpulse(ImpulseDirection* ImpulsePower, NAME_None, IsMassEffected);
+		if (IsRandomImpulseDirY) {
+			ImpulseDirection.Y = FMath::RandRange(MinRandomImpulseDirY, MaxRandomImpulseDirY);
+		}
+		PhysicsActor->GetMesh()->AddImpulse(ImpulseDirection * ImpulsePower, NAME_None, IsMassEffected);
 	}
 }
 
@@ -118,6 +124,7 @@ void AActorSpawner::ScaleActor(AActor* Actor)
 		ClearScaleTimer(Actor);
 	}
 }
+
 
 
 

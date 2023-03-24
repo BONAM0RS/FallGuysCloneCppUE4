@@ -6,7 +6,7 @@ ASpinningActor::ASpinningActor()
 	: RotationRate { 0.0f, 0.0f, 0.0f }
 {
 	SpinningMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("SpinningMesh"));
-	SpinningMeshComponent->SetupAttachment(StaticMeshComponent);
+	SpinningMeshComponent->SetupAttachment(SceneComponent);
 	SpinningMeshComponent->SetMobility(EComponentMobility::Movable);
 	SpinningMeshComponent->SetCollisionProfileName("BlockAllDynamic");
 
