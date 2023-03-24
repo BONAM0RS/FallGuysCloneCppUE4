@@ -1,7 +1,7 @@
-# ArtSourceFiles FBX
-ArtSourceFiles/*
-.ArtSourceFiles
+# ArtSourceFiles folder and FBX files
+ArtSourceFiles/
 *.fbx
+
 
 # intellij configs
 .idea/
