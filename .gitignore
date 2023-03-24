@@ -2,7 +2,6 @@
 ArtSourceFiles/
 *.fbx
 
-
 # intellij configs
 .idea/
 
