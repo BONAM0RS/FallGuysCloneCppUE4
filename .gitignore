@@ -1,3 +1,6 @@
+# Cache files for the editor to use
+ArtSourceFiles/*
+
 # intellij configs
 .idea/
 
