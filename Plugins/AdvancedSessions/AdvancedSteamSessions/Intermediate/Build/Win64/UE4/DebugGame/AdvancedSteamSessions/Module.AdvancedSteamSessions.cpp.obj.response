@@ -131,7 +131,7 @@
 /I G:\FallGuysClone\Plugins\AdvancedSessions\AdvancedSessions\Intermediate\Build\Win64\UE4\Inc\AdvancedSessions
 /I G:\FallGuysClone\Plugins\AdvancedSessions\AdvancedSessions\Source
 /I G:\FallGuysClone\Plugins\AdvancedSessions\AdvancedSessions\Source\AdvancedSessions\Classes
-/I ThirdParty\Steamworks\Steamv157\sdk\public
+/I ThirdParty\Steamworks\Steamv151\sdk\public
 /I ..\Plugins\Online\OnlineSubsystemSteam\Intermediate\Build\Win64\UE4\Inc\OnlineSubsystemSteam
 /I ..\Plugins\Online\OnlineSubsystemSteam
 /I ..\Plugins\Online\OnlineSubsystemSteam\Source\Classes

@@ -15,10 +15,6 @@
 	],
 	"Plugins": [
 		{
-			"Name": "SteamSockets",
-			"Enabled": true
-		},
-		{
 			"Name": "AdvancedSessions",
 			"Enabled": true
 		},

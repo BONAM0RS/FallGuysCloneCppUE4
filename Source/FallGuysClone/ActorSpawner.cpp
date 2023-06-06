@@ -33,7 +33,7 @@ void AActorSpawner::BeginPlay()
 		return;
 	}
 
-	//if (HasAuthority())
+	if (HasAuthority())
 	{
 		StartRespawnTimer();
 	}
