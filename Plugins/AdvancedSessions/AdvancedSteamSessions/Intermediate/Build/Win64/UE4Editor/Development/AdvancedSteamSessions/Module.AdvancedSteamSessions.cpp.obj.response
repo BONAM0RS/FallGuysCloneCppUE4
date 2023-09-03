@@ -32,7 +32,7 @@
 /wd4244
 /wd4838
 /I .
-/I G:\FallGuysClone\Plugins\AdvancedSessions\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private
+/I "G:\UE_4.27 projects\FallGuysCloneCppUE4\Plugins\AdvancedSessions\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private"
 /I ..\Plugins\Online\OnlineSubsystem\Intermediate\Build\Win64\UE4Editor\Inc\OnlineSubsystem
 /I ..\Plugins\Online\OnlineSubsystem
 /I ..\Plugins\Online\OnlineSubsystem\Source
@@ -241,13 +241,13 @@
 /I Editor\Kismet\Public
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\ClothingSystemRuntimeInterface
 /I Runtime\ClothingSystemRuntimeInterface\Public
-/I G:\FallGuysClone\Plugins\AdvancedSessions\AdvancedSteamSessions\Intermediate\Build\Win64\UE4Editor\Inc\AdvancedSteamSessions
-/I G:\FallGuysClone\Plugins\AdvancedSessions\AdvancedSteamSessions\Source
+/I "G:\UE_4.27 projects\FallGuysCloneCppUE4\Plugins\AdvancedSessions\AdvancedSteamSessions\Intermediate\Build\Win64\UE4Editor\Inc\AdvancedSteamSessions"
+/I "G:\UE_4.27 projects\FallGuysCloneCppUE4\Plugins\AdvancedSessions\AdvancedSteamSessions\Source"
 /I ..\Plugins\Online\OnlineSubsystemSteam\Source\Private
-/I G:\FallGuysClone\Plugins\AdvancedSessions\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes
-/I G:\FallGuysClone\Plugins\AdvancedSessions\AdvancedSessions\Intermediate\Build\Win64\UE4Editor\Inc\AdvancedSessions
-/I G:\FallGuysClone\Plugins\AdvancedSessions\AdvancedSessions\Source
-/I G:\FallGuysClone\Plugins\AdvancedSessions\AdvancedSessions\Source\AdvancedSessions\Classes
+/I "G:\UE_4.27 projects\FallGuysCloneCppUE4\Plugins\AdvancedSessions\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes"
+/I "G:\UE_4.27 projects\FallGuysCloneCppUE4\Plugins\AdvancedSessions\AdvancedSessions\Intermediate\Build\Win64\UE4Editor\Inc\AdvancedSessions"
+/I "G:\UE_4.27 projects\FallGuysCloneCppUE4\Plugins\AdvancedSessions\AdvancedSessions\Source"
+/I "G:\UE_4.27 projects\FallGuysCloneCppUE4\Plugins\AdvancedSessions\AdvancedSessions\Source\AdvancedSessions\Classes"
 /I ThirdParty\Steamworks\Steamv151\sdk\public
 /I ..\Plugins\Online\OnlineSubsystemSteam\Intermediate\Build\Win64\UE4Editor\Inc\OnlineSubsystemSteam
 /I ..\Plugins\Online\OnlineSubsystemSteam
@@ -276,18 +276,18 @@
 /I ThirdParty\PhysX3\APEX_1.4\shared\general\RenderDebug\public
 /I ThirdParty\PhysX3\APEX_1.4\shared\general\PairFilter\include
 /I ThirdParty\PhysX3\APEX_1.4\shared\internal\include
-/I "D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\INCLUDE"
+/I "G:\Microsoft Visual Studio\Visual Studio IDE\2022\Community\VC\Tools\MSVC\14.37.32822\INCLUDE"
 /I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"
-/FI"G:\FallGuysClone\Intermediate\Build\Win64\FallGuysCloneEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Yu"G:\FallGuysClone\Intermediate\Build\Win64\FallGuysCloneEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"G:\FallGuysClone\Intermediate\Build\Win64\FallGuysCloneEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
-"G:\FallGuysClone\Plugins\AdvancedSessions\AdvancedSteamSessions\Intermediate\Build\Win64\UE4Editor\Development\AdvancedSteamSessions\Module.AdvancedSteamSessions.cpp"
-/FI"G:\FallGuysClone\Plugins\AdvancedSessions\AdvancedSteamSessions\Intermediate\Build\Win64\UE4Editor\Development\AdvancedSteamSessions\Definitions.AdvancedSteamSessions.h"
-/Fo"G:\FallGuysClone\Plugins\AdvancedSessions\AdvancedSteamSessions\Intermediate\Build\Win64\UE4Editor\Development\AdvancedSteamSessions\Module.AdvancedSteamSessions.cpp.obj"
+/FI"G:\UE_4.27 projects\FallGuysCloneCppUE4\Intermediate\Build\Win64\FallGuysCloneEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Yu"G:\UE_4.27 projects\FallGuysCloneCppUE4\Intermediate\Build\Win64\FallGuysCloneEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Fp"G:\UE_4.27 projects\FallGuysCloneCppUE4\Intermediate\Build\Win64\FallGuysCloneEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
+"G:\UE_4.27 projects\FallGuysCloneCppUE4\Plugins\AdvancedSessions\AdvancedSteamSessions\Intermediate\Build\Win64\UE4Editor\Development\AdvancedSteamSessions\Module.AdvancedSteamSessions.cpp"
+/FI"G:\UE_4.27 projects\FallGuysCloneCppUE4\Plugins\AdvancedSessions\AdvancedSteamSessions\Intermediate\Build\Win64\UE4Editor\Development\AdvancedSteamSessions\Definitions.AdvancedSteamSessions.h"
+/Fo"G:\UE_4.27 projects\FallGuysCloneCppUE4\Plugins\AdvancedSessions\AdvancedSteamSessions\Intermediate\Build\Win64\UE4Editor\Development\AdvancedSteamSessions\Module.AdvancedSteamSessions.cpp.obj"
 /TP
 /GR-
 /W4
